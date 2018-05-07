@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <button class="button" style="width: 100px; height: 100px">Press me!</button>
+
+  <script src="https://unpkg.com/rxjs@5.5.8/bundles/Rx.min.js"></script>
+  <script type="module">
+    // С помощью RxJS необходимо воспроизвести поведение, представленное
+    // на борде по адресу https://kodaktor.ru/rx3
+    
+    const $click = Rx.Observable.fromEvent(document, 'click')
+      .filter(ev => ev.target.tagName === 'BUTTON')
+      .map(ev => ({ x: ev.clientX, y: ev.clientY }));
+
+    $click.subscribe(x => console.log(x));
+  </script>
+
+</body>
+
+</html>
