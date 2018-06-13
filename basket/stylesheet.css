@@ -2,3 +2,31 @@ header {
   background-color: black;
   color: white;
 }
+
+.main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 0 auto;
+}
+
+.goods {
+  display: grid;
+  width: 424px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  grid-gap: 24px;
+}
+
+.goods__item {
+  width: 200px;
+  height: 100px;
+  border: 1px solid black;
+  border-radius: 8px;
+}
+
+.basket {
+  width: 300px;
+  height: 150px;
+  border: 1px solid black;
+  border-radius: 8px;  
+}
