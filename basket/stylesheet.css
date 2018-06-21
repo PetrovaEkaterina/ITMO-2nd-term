@@ -1,32 +1,74 @@
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  text-align: center;
+  font-family: 'Quicksand', sans-serif;
+  letter-spacing: 1px;
+}
+
 header {
   background-color: black;
+  padding: 8px;
   color: white;
 }
 
+header>h1 {
+  margin: 0;
+  letter-spacing: 6px;
+}
+
 .main {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: inline-flex;
+  text-align: center;
   margin: 0 auto;
+  margin-bottom: 24px;
 }
 
 .goods {
   display: grid;
-  width: 424px;
+  flex: 1;
+  height: 350px;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;
   grid-gap: 24px;
+  margin-right: 200px;
 }
 
 .goods__item {
-  width: 200px;
+  position: relative;
+  width: 180px;
   height: 100px;
+  margin-bottom: 16px;
   border: 1px solid black;
   border-radius: 8px;
 }
 
+.good__count {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+}
+
+.goods__item:last-child {
+  margin-bottom: 0;
+}
+
 .basket {
+  flex: 1;
   width: 300px;
-  height: 150px;
+  min-height: 150px;
+  padding: 24px 0;
+  display: flex;
+  justify-content: center;
   border: 1px solid black;
-  border-radius: 8px;  
+  border-radius: 8px;
+}
+
+.money-left {
+  text-align: center;
+}
+
+.money-left__amount {
+  text-align: center;
 }
