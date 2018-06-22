@@ -1,15 +1,12 @@
-const budget = 500;
+const budget = 5000;
 const goods = {};
-const budgetValueElement = document.getElementsByClassName('budget__budget-value')[0];
 const goodsItems = document.getElementsByClassName('goods__item');
 const basket = document.getElementsByClassName('basket')[0];
 const basketContainerElement = document.getElementsByClassName('basket__goods-container')[0];
 const moneyLeft = document.getElementsByClassName('money-left__amount')[0];
+const greet = document.getElementsByClassName('basket__greet')[0];
 
 let purchaseAmount = 0;
-
-budgetValueElement.textContent = budget;
-
 
 for (const goodItem of goodsItems) {
   goodItem.addEventListener('dragstart', (event) => {
@@ -34,9 +31,12 @@ basket.addEventListener('dragover', event => event.preventDefault());
 
 basket.addEventListener('order', ({ detail: { price: stringPrice, goodId } }) => {
   const price = +stringPrice;
+  
+  greet.style.display = 'none';  
 
   if (purchaseAmount + price > budget) {
     alert('thats all folks!');
+    moneyLeft.textContent = `Another salary spent, huh?`;
   } else {
     const orderedGoodElement = document.getElementById(goodId).cloneNode(true);
     let count = 1;
@@ -59,6 +59,6 @@ basket.addEventListener('order', ({ detail: { price: stringPrice, goodId } }) =>
       basketContainerElement.appendChild(orderedGoodElement);
     }
     purchaseAmount += price;
-    moneyLeft.textContent = budget - purchaseAmount;
+    moneyLeft.textContent = `You have ${budget - purchaseAmount}$ in your wallet`;
   }
 });
