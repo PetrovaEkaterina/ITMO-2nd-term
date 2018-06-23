@@ -4,7 +4,6 @@ const goodsItems = document.getElementsByClassName('goods__item');
 const basket = document.getElementsByClassName('basket')[0];
 const basketContainerElement = document.getElementsByClassName('basket__goods-container')[0];
 const moneyLeft = document.getElementsByClassName('money-left__amount')[0];
-const greet = document.getElementsByClassName('basket__greet')[0];
 
 let purchaseAmount = 0;
 
@@ -32,7 +31,6 @@ basket.addEventListener('dragover', event => event.preventDefault());
 basket.addEventListener('order', ({ detail: { price: stringPrice, goodId } }) => {
   const price = +stringPrice;
   
-  greet.style.display = 'none';  
 
   if (purchaseAmount + price > budget) {
     alert('thats all folks!');
